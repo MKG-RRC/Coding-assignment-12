@@ -1,46 +1,122 @@
-# Getting Started with Create React App
+# Assignment 12 - Web Component Library
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Student:** Mark Kenneth Garcia
+**Course:** WEBD-3012 (273795) Business Systems Build and Testing
+**Term:** Fall 2025
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 📘 Overview
+This assignment demonstrates how to create a **React Component Library** and serve it in a production environment using **Docker** and **Nginx**.
 
-### `npm start`
+The React app was created with **Create React App (CRA)** and built using `npm run build`.
+The production-ready files are hosted inside a lightweight **Nginx container**, served on **localhost:8083**.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 🧩 Technologies Used
+- **React** (Create React App)
+- **Node.js 20 (Alpine)**
+- **Nginx 1.27 (Alpine)**
+- **Docker Desktop**
+- **Windows PowerShell**
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## ⚙️ Project Structure
+ui-garden/
+│
+├── src/ # React source code
+├── public/ # Static assets
+├── build/ # Production build output
+├── Dockerfile # Multi-stage Docker configuration
+├── package.json # Node dependencies
+└── README.md # Setup & instructions
 
-### `npm run build`
+yaml
+Copy code
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🐳 Docker Setup Instructions
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 1️⃣ Build the Docker Image
+Open PowerShell in the project directory and run:
+```bash
+docker build -t ui-garden:prod .
+This command:
 
-### `npm run eject`
+Builds the React app using Node.js
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Copies the production build into an Nginx container
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Exposes port 8083
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+2️⃣ Run the Container
+After the image builds successfully, start the container:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+bash
+Copy code
+docker run --rm -d -p 8083:8083 --name garcia_mark_coding_assignment12 ui-garden:prod
+Flags explained:
 
-## Learn More
+--rm → Removes the container automatically after stopping
+-d → Runs the container in detached (background) mode
+-p 8083:8083 → Maps container port 8083 to localhost
+--name → Assigns the required container name for the assignment
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3️⃣ View the App
+Once running, open your browser and go to:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+cpp
+Copy code
+http://127.0.0.1:8083
+You should see the React app landing page, confirming the build and deployment are successful.
+
+4️⃣ Verify Container Status
+Check that the container is active:
+
+bash
+Copy code
+docker ps
+Expected output:
+
+nginx
+Copy code
+CONTAINER ID   IMAGE            STATUS          PORTS
+abcd1234efgh   ui-garden:prod   Up 10 seconds   0.0.0.0:8083->8083/tcp
+5️⃣ Stop the Container
+When finished testing:
+
+bash
+Copy code
+docker stop garcia_mark_coding_assignment12
+🌐 Dockerfile Summary
+This project uses a multi-stage build Dockerfile.
+
+Stage 1 – Builder (Node):
+Installs dependencies
+Builds the optimized React app
+Stage 2 – Runtime (Nginx):
+Copies the build output to /garcia_mark_ui_garden
+
+Configures Nginx to serve files on port 8083
+
+Uses SPA fallback routing (try_files $uri $uri/ /index.html;)
+
+
+💡 Verification
+Build the image using
+
+bash
+Copy code
+docker build -t ui-garden:prod .
+Run the container
+
+bash
+Copy code
+docker run -d -p 8083:8083 ui-garden:prod
+Open the app in a browser at
+http://127.0.0.1:8083
+
+Confirm it runs successfully using docker ps
