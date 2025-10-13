@@ -1,7 +1,2 @@
-
-export type ButtonProps = {
-  label: string;
-  disabled?: boolean;
-};
-
-export {}; // ✅ Add this line
+export type { ButtonProps } from "./Button";
+export {};

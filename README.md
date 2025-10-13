@@ -6,117 +6,141 @@
 
 ---
 
-## 📘 Overview
-This assignment demonstrates how to create a **React Component Library** and serve it in a production environment using **Docker** and **Nginx**.
-
-The React app was created with **Create React App (CRA)** and built using `npm run build`.
-The production-ready files are hosted inside a lightweight **Nginx container**, served on **localhost:8083**.
-
----
-
-## 🧩 Technologies Used
-- **React** (Create React App)
-- **Node.js 20 (Alpine)**
-- **Nginx 1.27 (Alpine)**
-- **Docker Desktop**
-- **Windows PowerShell**
+## Overview
+This project creates a **React Component Library** served in a production environment using **Docker** and **Nginx**.
+The app was built with **Create React App (CRA)** and is deployed on **localhost:8083**.
+Storybook is used to showcase and test each reusable UI component.
 
 ---
 
-## ⚙️ Project Structure
+## Technologies Used
+- React (Create React App)
+- Storybook
+- Styled Components
+- Node.js 20 (Alpine)
+- Nginx 1.27 (Alpine)
+- Docker Desktop
+- Windows PowerShell
+
+---
+
+## Project Structure
+```
 ui-garden/
+├── .storybook/           # Storybook configuration files
+│   ├── main.js
+│   ├── preview.js
+│   └── manager.js
 │
-├── src/ # React source code
-├── public/ # Static assets
-├── build/ # Production build output
-├── Dockerfile # Multi-stage Docker configuration
-├── package.json # Node dependencies
-└── README.md # Setup & instructions
-
-yaml
-Copy code
+├── src/                  # React source code
+│   └── components/       # Reusable UI components
+│       ├── Button/
+│       ├── Label/
+│       ├── Text/
+│       ├── Dropdown/
+│       ├── RadioButton/
+│       ├── Card/
+│       ├── Img/
+│       ├── HeroImage/
+│       └── Table/
+│           ├── TableHeader/
+│           ├── TableRow/
+│           ├── TableCell/
+│           └── TableFooter/
+│
+├── public/               # Static assets
+├── build/                # Production build output
+├── Dockerfile            # Multi-stage Docker configuration
+├── package.json          # Node dependencies
+└── README.md             # Setup & instructions
+```
 
 ---
 
-## 🐳 Docker Setup Instructions
+## Docker Setup
 
-### 1️⃣ Build the Docker Image
-Open PowerShell in the project directory and run:
+### 1️ Build the Image
 ```bash
 docker build -t ui-garden:prod .
-This command:
+```
 
-Builds the React app using Node.js
-
-Copies the production build into an Nginx container
-
-Exposes port 8083
-
-2️⃣ Run the Container
-After the image builds successfully, start the container:
-
-bash
-Copy code
+### 2️ Run the Container
+```bash
 docker run --rm -d -p 8083:8083 --name garcia_mark_coding_assignment12 ui-garden:prod
-Flags explained:
+```
 
---rm → Removes the container automatically after stopping
--d → Runs the container in detached (background) mode
--p 8083:8083 → Maps container port 8083 to localhost
---name → Assigns the required container name for the assignment
+**Flags:**
+- `--rm` – Removes the container after stopping
+- `-d` – Runs the container in background
+- `-p` – Maps container port 8083 to localhost
+- `--name` – Assigns the container name as required by the assignment
 
-3️⃣ View the App
-Once running, open your browser and go to:
+---
 
-cpp
-Copy code
-http://127.0.0.1:8083
-You should see the React app landing page, confirming the build and deployment are successful.
+### 3️ View the App
+Open in browser:
+[http://127.0.0.1:8083](http://127.0.0.1:8083)
+or
+[http://localhost:8083](http://localhost:8083)
 
-4️⃣ Verify Container Status
-Check that the container is active:
+---
 
-bash
-Copy code
+### 4️ Verify and Stop
+Check active containers:
+```bash
 docker ps
-Expected output:
+```
 
-nginx
-Copy code
-CONTAINER ID   IMAGE            STATUS          PORTS
-abcd1234efgh   ui-garden:prod   Up 10 seconds   0.0.0.0:8083->8083/tcp
-5️⃣ Stop the Container
-When finished testing:
-
-bash
-Copy code
+Stop the container:
+```bash
 docker stop garcia_mark_coding_assignment12
-🌐 Dockerfile Summary
-This project uses a multi-stage build Dockerfile.
+```
 
-Stage 1 – Builder (Node):
-Installs dependencies
-Builds the optimized React app
-Stage 2 – Runtime (Nginx):
-Copies the build output to /garcia_mark_ui_garden
+---
 
-Configures Nginx to serve files on port 8083
+## Storybook Setup
 
-Uses SPA fallback routing (try_files $uri $uri/ /index.html;)
+### 1️ Start Storybook
+```bash
+npm run storybook
+```
 
+### 2️ Access Storybook
+Open in browser:
+[http://localhost:6006](http://localhost:6006)
 
-💡 Verification
-Build the image using
+### 3️ Available Components
+Each component (Button, Label, Text, etc.) includes:
+- A `.tsx` implementation file
+- A `.stories.tsx` file for Storybook display
+- A `.types.ts` for prop types
+- A `.test.tsx` for visibility and disabled-state tests
+- An `index.ts` for exports
 
-bash
-Copy code
+---
+
+## Dockerfile Summary
+**Stage 1 – Node (Builder):**
+- Installs dependencies
+- Builds optimized React app
+
+**Stage 2 – Nginx (Runtime):**
+- Serves `/garcia_mark_ui_garden` on port **8083**
+- Uses SPA routing with `try_files $uri $uri/ /index.html;`
+
+---
+
+## Verification
+```bash
 docker build -t ui-garden:prod .
-Run the container
-
-bash
-Copy code
 docker run -d -p 8083:8083 ui-garden:prod
-Open the app in a browser at
-http://127.0.0.1:8083
+```
 
-Confirm it runs successfully using docker ps
+Then open: [http://localhost:8083](http://localhost:8083)
+
+Check Storybook:
+[http://localhost:6006](http://localhost:6006)
+
+---
+
+

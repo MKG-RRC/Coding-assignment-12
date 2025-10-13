@@ -1,7 +1,2 @@
-
-export type ButtonProps = {
-  label: string;
-  disabled?: boolean;
-};
-
+export * from "./Button";
 export {};
