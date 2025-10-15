@@ -28,7 +28,7 @@ export const Rounded: Story = {
 
 export const Disabled: Story = {
   args: {
-    src: "https://images.unsplash.com/photo-1473186505569-9c61870c11f9?auto=format&fit=crop&w=600&q=80",
+    src: "https://images.unsplash.com/photo-1495567720989-cebdbdd97913?auto=format&fit=crop&w=600&q=80",
     alt: "Disabled image",
     disabled: true,
   },
