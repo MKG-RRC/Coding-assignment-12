@@ -17,8 +17,7 @@ const StyledButton = styled.button<{ $disabled?: boolean }>`
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: ${(props) =>
-      props.$disabled ? "#ccc" : "#0056b3"};
+    background-color: ${(props) => (props.$disabled ? "#ccc" : "#0056b3")};
   }
 `;
 

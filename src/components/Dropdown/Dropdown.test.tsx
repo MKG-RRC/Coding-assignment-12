@@ -10,7 +10,9 @@ test("renders dropdown label and options", () => {
 
 test("triggers onChange when selecting", () => {
   const handleChange = jest.fn();
-  render(<Dropdown label="Pick" options={["A", "B"]} onChange={handleChange} />);
+  render(
+    <Dropdown label="Pick" options={["A", "B"]} onChange={handleChange} />,
+  );
   fireEvent.change(screen.getByDisplayValue("A"), { target: { value: "B" } });
   expect(handleChange).toHaveBeenCalled();
 });

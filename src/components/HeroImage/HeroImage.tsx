@@ -16,7 +16,8 @@ const HeroWrapper = styled.div<{ $imageUrl: string; $disabled?: boolean }>`
   background-image: url(${(props) => props.$imageUrl});
   background-size: cover;
   background-position: center;
-  filter: ${(props) => (props.$disabled ? "grayscale(90%) opacity(0.6)" : "none")};
+  filter: ${(props) =>
+    props.$disabled ? "grayscale(90%) opacity(0.6)" : "none"};
   transition: all 0.3s ease-in-out;
 `;
 
@@ -36,7 +37,12 @@ const Overlay = styled.div`
   padding: 1rem;
 `;
 
-export const HeroImage = ({ imageUrl, title, subtitle, disabled }: HeroImageProps) => {
+export const HeroImage = ({
+  imageUrl,
+  title,
+  subtitle,
+  disabled,
+}: HeroImageProps) => {
   return (
     <HeroWrapper $imageUrl={imageUrl} $disabled={disabled}>
       <Overlay>

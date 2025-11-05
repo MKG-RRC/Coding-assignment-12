@@ -7,7 +7,11 @@ export type TableFooterProps = {
   bold?: boolean;
 };
 
-const StyledFooter = styled.tfoot<{ $backgroundColor?: string; $color?: string; $bold?: boolean }>`
+const StyledFooter = styled.tfoot<{
+  $backgroundColor?: string;
+  $color?: string;
+  $bold?: boolean;
+}>`
   background-color: ${(props) => props.$backgroundColor || "#f8f8f8"};
   color: ${(props) => props.$color || "#222"};
   font-weight: ${(props) => (props.$bold ? "600" : "400")};
@@ -21,9 +25,18 @@ const StyledFooterCell = styled.td`
   font-size: 15px;
 `;
 
-export const TableFooter = ({ cells, backgroundColor, color, bold }: TableFooterProps) => {
+export const TableFooter = ({
+  cells,
+  backgroundColor,
+  color,
+  bold,
+}: TableFooterProps) => {
   return (
-    <StyledFooter $backgroundColor={backgroundColor} $color={color} $bold={bold}>
+    <StyledFooter
+      $backgroundColor={backgroundColor}
+      $color={color}
+      $bold={bold}
+    >
       <tr>
         {cells.map((cell, index) => (
           <StyledFooterCell key={index}>{cell}</StyledFooterCell>

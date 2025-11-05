@@ -7,7 +7,11 @@ export type TableHeaderProps = {
   sticky?: boolean;
 };
 
-const StyledHeader = styled.thead<{ $backgroundColor?: string; $color?: string; $sticky?: boolean }>`
+const StyledHeader = styled.thead<{
+  $backgroundColor?: string;
+  $color?: string;
+  $sticky?: boolean;
+}>`
   background-color: ${(props) => props.$backgroundColor || "#f0f0f0"};
   color: ${(props) => props.$color || "#222"};
   font-weight: 600;

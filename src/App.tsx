@@ -1,11 +1,10 @@
-import React from "react";
+// import React from "react";
 import styled from "styled-components";
 import { Button } from "./components/Button";
-import { Card } from "./components/Card";
+// // import { Card } from "./components/Card";
 import { Dropdown } from "./components/Dropdown";
 import { RadioButton } from "./components/RadioButton";
-import { HeroImage } from "./components/HeroImage";
-
+// import { HeroImage } from "./components/HeroImage";
 
 const Container = styled.div`
   display: flex;
@@ -35,20 +34,9 @@ function App() {
         label="Choose an option"
       />
 
-      <RadioButton label="Option A" name="group1" />
-      <RadioButton label="Option B" name="group1" />
-
-      <Card
-        title="Sample Card"
-        image="https://via.placeholder.com/300"
-        description="This is a reusable card component."
-      />
-
-      
-
-
+      <RadioButton label="Option A" name="group1" value="A" />
+      <RadioButton label="Option B" name="group1" value="B" />
     </Container>
-
   );
 }
 

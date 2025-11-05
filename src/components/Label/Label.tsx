@@ -19,7 +19,8 @@ const StyledLabel = styled.label<{ $color?: string; $disabled?: boolean }>`
   transition: all 0.3s ease;
 
   &:hover {
-    background-color: ${(props) => (props.$disabled ? "transparent" : "#f5f5f5")};
+    background-color: ${(props) =>
+      props.$disabled ? "transparent" : "#f5f5f5"};
   }
 `;
 

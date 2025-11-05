@@ -27,7 +27,12 @@ const Label = styled.label`
   margin-bottom: 5px;
 `;
 
-export const Dropdown = ({ label, options, disabled, onChange }: DropdownProps) => {
+export const Dropdown = ({
+  label,
+  options,
+  disabled,
+  onChange,
+}: DropdownProps) => {
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     if (onChange) onChange(e.target.value);
   };
@@ -35,7 +40,11 @@ export const Dropdown = ({ label, options, disabled, onChange }: DropdownProps) 
   return (
     <div>
       <Label>{label}</Label>
-      <StyledSelect $disabled={disabled} disabled={disabled} onChange={handleChange}>
+      <StyledSelect
+        $disabled={disabled}
+        disabled={disabled}
+        onChange={handleChange}
+      >
         {options.map((opt, idx) => (
           <option key={idx} value={opt}>
             {opt}

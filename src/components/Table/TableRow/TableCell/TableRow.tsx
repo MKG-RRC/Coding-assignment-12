@@ -1,4 +1,4 @@
-  import styled from "styled-components";
+import styled from "styled-components";
 
 export type TableRowProps = {
   cells: (string | number)[];
@@ -8,9 +8,15 @@ export type TableRowProps = {
   onClick?: () => void;
 };
 
-const StyledRow = styled.tr<{ $hoverable?: boolean; $striped?: boolean; $index?: number }>`
+const StyledRow = styled.tr<{
+  $hoverable?: boolean;
+  $striped?: boolean;
+  $index?: number;
+}>`
   background-color: ${(props) =>
-    props.$striped && props.$index && props.$index % 2 !== 0 ? "#f9f9f9" : "white"};
+    props.$striped && props.$index && props.$index % 2 !== 0
+      ? "#f9f9f9"
+      : "white"};
   transition: background-color 0.3s ease;
 
   ${(props) =>
@@ -29,7 +35,13 @@ const StyledCell = styled.td`
   border-bottom: 1px solid #ddd;
 `;
 
-export const TableRow = ({ cells, hoverable, striped, index, onClick }: TableRowProps) => {
+export const TableRow = ({
+  cells,
+  hoverable,
+  striped,
+  index,
+  onClick,
+}: TableRowProps) => {
   return (
     <StyledRow
       $hoverable={hoverable}

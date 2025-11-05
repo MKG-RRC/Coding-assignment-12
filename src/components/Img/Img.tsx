@@ -1,4 +1,4 @@
-  import styled from "styled-components";
+import styled from "styled-components";
 
 export type ImgProps = {
   src: string;
@@ -15,7 +15,8 @@ const StyledImg = styled.img<{ $rounded?: boolean; $disabled?: boolean }>`
   max-width: ${(props) => props.width || "100%"};
   height: auto;
   border-radius: ${(props) => (props.$rounded ? "12px" : "0")};
-  filter: ${(props) => (props.$disabled ? "grayscale(90%) opacity(0.6)" : "none")};
+  filter: ${(props) =>
+    props.$disabled ? "grayscale(90%) opacity(0.6)" : "none"};
   transition: all 0.3s ease;
 
   &:hover {
@@ -23,7 +24,14 @@ const StyledImg = styled.img<{ $rounded?: boolean; $disabled?: boolean }>`
   }
 `;
 
-export const Img = ({ src, alt, width, height, rounded, disabled }: ImgProps) => {
+export const Img = ({
+  src,
+  alt,
+  width,
+  height,
+  rounded,
+  disabled,
+}: ImgProps) => {
   return (
     <StyledImg
       src={src}
