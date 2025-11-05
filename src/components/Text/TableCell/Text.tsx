@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styledComponent from "styled-components";
 
 export type TextProps = {
   content: string;
@@ -8,7 +8,7 @@ export type TextProps = {
   disabled?: boolean;
 };
 
-const StyledText = styled.p<{
+const StyledText = styledComponent.p<{
   $size: string;
   $color?: string;
   $weight: string;

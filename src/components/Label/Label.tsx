@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styledComponent from "styled-components";
 
 export type LabelProps = {
   text: string;
@@ -7,7 +7,10 @@ export type LabelProps = {
   disabled?: boolean;
 };
 
-const StyledLabel = styled.label<{ $color?: string; $disabled?: boolean }>`
+const StyledLabel = styledComponent.label<{
+  $color?: string;
+  $disabled?: boolean;
+}>`
   display: inline-block;
   font-size: 16px;
   font-weight: 500;

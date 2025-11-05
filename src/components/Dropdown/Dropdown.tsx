@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styledComponent, { isStyledComponent } from "styled-components";
 
 export type DropdownProps = {
   label: string;
@@ -7,7 +7,7 @@ export type DropdownProps = {
   onChange?: (value: string) => void;
 };
 
-const StyledSelect = styled.select<{ $disabled?: boolean }>`
+const StyledSelect = styledComponent.select<{ $disabled?: boolean }>`
   padding: 8px 12px;
   border-radius: 6px;
   border: 1px solid #ccc;
@@ -21,7 +21,7 @@ const StyledSelect = styled.select<{ $disabled?: boolean }>`
   }
 `;
 
-const Label = styled.label`
+const Label = styledComponent.label`
   display: block;
   font-weight: 500;
   margin-bottom: 5px;

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styledComponent from "styled-components";
 
 export type ImgProps = {
   src: string;
@@ -9,7 +9,10 @@ export type ImgProps = {
   disabled?: boolean;
 };
 
-const StyledImg = styled.img<{ $rounded?: boolean; $disabled?: boolean }>`
+const StyledImg = styledComponent.img<{
+  $rounded?: boolean;
+  $disabled?: boolean;
+}>`
   display: block;
   width: 100%;
   max-width: ${(props) => props.width || "100%"};

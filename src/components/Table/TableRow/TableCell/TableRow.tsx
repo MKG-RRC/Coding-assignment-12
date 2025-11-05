@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styledComponent from "styled-components";
 
 export type TableRowProps = {
   cells: (string | number)[];
@@ -8,7 +8,7 @@ export type TableRowProps = {
   onClick?: () => void;
 };
 
-const StyledRow = styled.tr<{
+const StyledRow = styledComponent.tr<{
   $hoverable?: boolean;
   $striped?: boolean;
   $index?: number;
@@ -29,7 +29,7 @@ const StyledRow = styled.tr<{
   `}
 `;
 
-const StyledCell = styled.td`
+const StyledCell = styledComponent.td`
   padding: 10px 16px;
   font-size: 15px;
   border-bottom: 1px solid #ddd;

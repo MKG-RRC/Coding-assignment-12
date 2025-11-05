@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styledComponent from "styled-components";
 
 export type CardProps = {
   title: string;
@@ -6,7 +6,7 @@ export type CardProps = {
   disabled?: boolean;
 };
 
-const StyledCard = styled.div<{ $disabled?: boolean }>`
+const StyledCard = styledComponent.div<{ $disabled?: boolean }>`
   background-color: ${(props) => (props.$disabled ? "#f2f2f2" : "#ffffff")};
   border: 1px solid #ddd;
   border-radius: 8px;

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styledComponent from "styled-components";
 
 export type TableCellProps = {
   content: string | number;
@@ -8,7 +8,7 @@ export type TableCellProps = {
   color?: string;
 };
 
-const StyledCell = styled.td<{
+const StyledCell = styledComponent.td<{
   $align?: string;
   $bold?: boolean;
   $width?: string;

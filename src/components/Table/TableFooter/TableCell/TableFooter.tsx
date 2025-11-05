@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styledComponent from "styled-components";
 
 export type TableFooterProps = {
   cells: (string | number)[];
@@ -7,7 +7,7 @@ export type TableFooterProps = {
   bold?: boolean;
 };
 
-const StyledFooter = styled.tfoot<{
+const StyledFooter = styledComponent.tfoot<{
   $backgroundColor?: string;
   $color?: string;
   $bold?: boolean;
@@ -18,7 +18,7 @@ const StyledFooter = styled.tfoot<{
   border-top: 2px solid #ccc;
 `;
 
-const StyledFooterCell = styled.td`
+const StyledFooterCell = styledComponent.td`
   padding: 10px 16px;
   text-align: left;
   border-bottom: none;

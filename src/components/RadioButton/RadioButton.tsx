@@ -1,9 +1,9 @@
 import React from "react";
-import styled from "styled-components";
+import styledComponent from "styled-components";
 
 import { RadioButtonProps } from "./RadioButton.types";
 
-const StyledRadio = styled.label<{ disabled?: boolean }>`
+const StyledRadio = styledComponent.label<{ disabled?: boolean }>`
   display: inline-flex;
   align-items: center;
   cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};

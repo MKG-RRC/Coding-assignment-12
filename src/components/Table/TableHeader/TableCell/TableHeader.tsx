@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styledComponent from "styled-components";
 
 export type TableHeaderProps = {
   headers: string[];
@@ -7,7 +7,7 @@ export type TableHeaderProps = {
   sticky?: boolean;
 };
 
-const StyledHeader = styled.thead<{
+const StyledHeader = styledComponent.thead<{
   $backgroundColor?: string;
   $color?: string;
   $sticky?: boolean;
@@ -25,7 +25,7 @@ const StyledHeader = styled.thead<{
   `}
 `;
 
-const StyledHeaderCell = styled.th`
+const StyledHeaderCell = styledComponent.th`
   padding: 10px 16px;
   text-align: left;
   border-bottom: 2px solid #ccc;

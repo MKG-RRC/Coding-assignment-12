@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styledComponent from "styled-components";
 
 export type HeroImageProps = {
   imageUrl: string;
@@ -7,7 +7,10 @@ export type HeroImageProps = {
   disabled?: boolean;
 };
 
-const HeroWrapper = styled.div<{ $imageUrl: string; $disabled?: boolean }>`
+const HeroWrapper = styledComponent.div<{
+  $imageUrl: string;
+  $disabled?: boolean;
+}>`
   position: relative;
   width: 100%;
   height: 250px;
@@ -21,7 +24,7 @@ const HeroWrapper = styled.div<{ $imageUrl: string; $disabled?: boolean }>`
   transition: all 0.3s ease-in-out;
 `;
 
-const Overlay = styled.div`
+const Overlay = styledComponent.div`
   position: absolute;
   top: 0;
   left: 0;

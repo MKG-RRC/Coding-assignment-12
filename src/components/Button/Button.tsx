@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styledComponent from "styled-components";
 
 export type ButtonProps = {
   label: string;
@@ -6,7 +6,7 @@ export type ButtonProps = {
   onClick?: () => void;
 };
 
-const StyledButton = styled.button<{ $disabled?: boolean }>`
+const StyledButton = styledComponent.button<{ $disabled?: boolean }>`
   background-color: ${(props) => (props.$disabled ? "#ccc" : "#007bff")};
   color: white;
   border: none;
