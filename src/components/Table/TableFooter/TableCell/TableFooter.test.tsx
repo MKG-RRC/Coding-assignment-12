@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+
 import { TableFooter } from "./TableFooter";
 
 test("renders footer cells", () => {

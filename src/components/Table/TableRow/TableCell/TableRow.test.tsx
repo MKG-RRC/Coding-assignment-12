@@ -1,4 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
+
 import { TableRow } from "./TableRow";
 
 test("renders all cell values", () => {

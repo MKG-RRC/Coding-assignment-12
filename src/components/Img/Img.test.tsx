@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+
 import { Img } from "./Img";
 
 test("renders image with alt text", () => {

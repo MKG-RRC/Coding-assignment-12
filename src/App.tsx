@@ -8,10 +8,10 @@ import { HeroImage } from "./components/HeroImage";
 import { Img } from "./components/Img";
 import { Label } from "./components/Label";
 import { RadioButton } from "./components/RadioButton";
-import { Text } from "./components/Text/TableCell/Text";
-import { TableHeader } from "./components/Table/TableHeader/TableCell/TableHeader";
 import { TableFooter } from "./components/Table/TableFooter/TableCell/TableFooter";
+import { TableHeader } from "./components/Table/TableHeader/TableCell/TableHeader";
 import { TableRow } from "./components/Table/TableRow/TableCell/TableRow";
+import { Text } from "./components/Text/TableCell/Text";
 
 const Container = styled.div`
   display: flex;

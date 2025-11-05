@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+
 import { HeroImage } from "./HeroImage";
 
 const meta: Meta<typeof HeroImage> = {

@@ -1,4 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
+
 import { Dropdown } from "./Dropdown";
 
 test("renders dropdown label and options", () => {
