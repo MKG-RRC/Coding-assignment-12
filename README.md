@@ -8,7 +8,7 @@
 
 ## Overview
 
-TThis assignment extends Assignment 12 (UI Garden Component Library) by adding automated code-quality checks and continuous integration through GitHub Actions.
+This assignment extends Assignment 12 (UI Garden Component Library) by adding automated code-quality checks and continuous integration through GitHub Actions.
 
 The system now includes:
 
@@ -28,7 +28,7 @@ Frontend & Frameworks
 
 Code Quality & Automation
 
-- SLint – JavaScript/TypeScript linting
+- ESLint – JavaScript/TypeScript linting
 - Prettier – code formatting enforcement
 - Husky – Git pre-commit hooks
 - lint-staged – runs checks only on staged files
@@ -85,7 +85,7 @@ If any fail → commit is blocked until fixed.
 
 ---
 
-### packege.json script snippet:
+### package.json script snippet:
 
 ```
 "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
