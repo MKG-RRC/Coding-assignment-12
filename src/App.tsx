@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styledComponent from "styled-components";
 
 import { Button } from "./components/Button";
 import { Card } from "./components/Card";
@@ -13,7 +13,7 @@ import { TableHeader } from "./components/Table/TableHeader/TableCell/TableHeade
 import { TableRow } from "./components/Table/TableRow/TableCell/TableRow";
 import { Text } from "./components/Text/TableCell/Text";
 
-const Container = styled.div`
+const Container = styledComponent.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,12 +23,12 @@ const Container = styled.div`
   min-height: 100vh;
 `;
 
-const Title = styled.h1`
+const Title = styledComponent.h1`
   font-family: sans-serif;
   color: #333;
 `;
 
-const Section = styled.div`
+const Section = styledComponent.div`
   width: 100%;
   max-width: 800px;
   background: white;
@@ -37,7 +37,7 @@ const Section = styled.div`
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 `;
 
-const SectionTitle = styled.h2`
+const SectionTitle = styledComponent.h2`
   color: #555;
   margin-bottom: 16px;
 `;

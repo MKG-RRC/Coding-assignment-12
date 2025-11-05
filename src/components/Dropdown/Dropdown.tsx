@@ -1,4 +1,4 @@
-import styledComponent, { isStyledComponent } from "styled-components";
+import styledComponent from "styled-components";
 
 export type DropdownProps = {
   label: string;
@@ -7,17 +7,18 @@ export type DropdownProps = {
   onChange?: (value: string) => void;
 };
 
+// 💡 Properly typed styled-component
 const StyledSelect = styledComponent.select<{ $disabled?: boolean }>`
   padding: 8px 12px;
   border-radius: 6px;
   border: 1px solid #ccc;
-  background-color: ${(props) => (props.$disabled ? "#f2f2f2" : "#fff")};
-  color: ${(props) => (props.$disabled ? "#999" : "#333")};
-  cursor: ${(props) => (props.$disabled ? "not-allowed" : "pointer")};
+  background-color: ${({ $disabled }) => ($disabled ? "#f2f2f2" : "#fff")};
+  color: ${({ $disabled }) => ($disabled ? "#999" : "#333")};
+  cursor: ${({ $disabled }) => ($disabled ? "not-allowed" : "pointer")};
   transition: all 0.2s ease;
 
   &:hover {
-    border-color: ${(props) => (props.$disabled ? "#ccc" : "#007bff")};
+    border-color: ${({ $disabled }) => ($disabled ? "#ccc" : "#007bff")};
   }
 `;
 
@@ -34,7 +35,7 @@ export const Dropdown = ({
   onChange,
 }: DropdownProps) => {
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    if (onChange) onChange(e.target.value);
+    onChange?.(e.target.value);
   };
 
   return (
@@ -54,5 +55,3 @@ export const Dropdown = ({
     </div>
   );
 };
-
-export {};
