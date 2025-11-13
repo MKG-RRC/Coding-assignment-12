@@ -14,13 +14,13 @@ WORKDIR /garcia_markkenneth_ui_garden_build_checks
 # Copy dependency files first
 COPY package*.json ./
 
-# Install dependencies (ignore peer-dep conflicts + include dev deps)
+# Install dependencies
 RUN npm install --legacy-peer-deps --include=dev
 
 # ⬇ Explicitly ensure react-scripts is present
 RUN npm install react-scripts@latest --save-dev --legacy-peer-deps
 
-# Copy all source code (story files excluded via .dockerignore)
+# Copy all source code
 COPY . .
 
 # Build the production-ready app
