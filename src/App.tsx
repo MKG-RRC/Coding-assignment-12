@@ -52,7 +52,7 @@ function App() {
         <SectionTitle>HeroImage</SectionTitle>
         <HeroImage
           imageUrl="https://via.placeholder.com/600x200"
-          title="Welcome to UI Garden"
+          title="Welcome to UI Garden System Build Checks"
         />
       </Section>
 
